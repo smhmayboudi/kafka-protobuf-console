@@ -50,10 +50,11 @@ const encode = (schema, registryId, jsonPayload) => {
 // ========================================
 // ========================================
 
-const { Kafka } = require("kafkajs");
+const { Kafka, logLevel } = require("kafkajs");
 const kafka = new Kafka({
   brokers: ["broker:29092"],
-  clientId: "my-app",
+  clientId: "AAA",
+  logLevel: logLevel.DEBUG,
 });
 
 async function producer() {
