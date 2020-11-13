@@ -1,0 +1,1 @@
+syntax = "proto3"; message AAA { string message = 1; }

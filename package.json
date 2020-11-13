@@ -1,0 +1,14 @@
+{
+  "name": "kafka-protobuf-console",
+  "version": "1.0.0",
+  "description": "a test project for kafka to use protobuf schema registry",
+  "main": "index.js",
+  "repository": "https://github.com/smhmayboudi/kafka-protobuf-console",
+  "author": "Hossein Mayboudi (https://www.linkedin.com/in/smhmayboudi/)",
+  "license": "MIT",
+  "dependencies": {
+    "google-protobuf": "^3.14.0-rc.3",
+    "kafkajs": "^1.14.0",
+    "protobufjs": "^6.10.1"
+  }
+}
