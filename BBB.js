@@ -32,6 +32,7 @@ protobuf.load("./AAA.proto", function (err, root) {
   // };
 
   const MAGIC_BYTE = Buffer.alloc(1);
+  const MESSAGE_INDEX_BYTES = Buffer.alloc(1);
 
   const encode = (schema, registryId, jsonPayload) => {
     // let avroPayload;
@@ -46,7 +47,7 @@ protobuf.load("./AAA.proto", function (err, root) {
     registryIdBuffer.writeInt32BE(registryId, DEFAULT_OFFSET);
 
     // return Buffer.concat([MAGIC_BYTE, registryIdBuffer, avroPayload]);
-    return Buffer.concat([MAGIC_BYTE, registryIdBuffer, Buffer.from(buffer)]);
+    return Buffer.concat([MAGIC_BYTE, registryIdBuffer, MESSAGE_INDEX_BYTES, Buffer.from(buffer)]);
   };
 
   // ========================================
@@ -67,7 +68,7 @@ protobuf.load("./AAA.proto", function (err, root) {
     await producer.send({
       messages: [
         {
-          value: encode(0, 53, 0),
+          value: encode(0, 42, 0),
         },
       ],
       topic: "AAA",

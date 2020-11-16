@@ -28,6 +28,7 @@ const DEFAULT_OFFSET = 0;
 // };
 
 const MAGIC_BYTE = Buffer.alloc(1);
+const MESSAGE_INDEX_BYTES = Buffer.alloc(1);
 
 const encode = (schema, registryId, jsonPayload) => {
   // let avroPayload;
@@ -42,7 +43,7 @@ const encode = (schema, registryId, jsonPayload) => {
   registryIdBuffer.writeInt32BE(registryId, DEFAULT_OFFSET);
 
   // return Buffer.concat([MAGIC_BYTE, registryIdBuffer, avroPayload]);
-  return Buffer.concat([MAGIC_BYTE, registryIdBuffer, data]);
+  return Buffer.concat([MAGIC_BYTE, registryIdBuffer, MESSAGE_INDEX_BYTES, data]);
 };
 
 // ========================================
